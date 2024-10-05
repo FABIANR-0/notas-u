@@ -1,4 +1,4 @@
-package com.example.notasu
+package cn.example.parcial
 
 import org.junit.Test
 
