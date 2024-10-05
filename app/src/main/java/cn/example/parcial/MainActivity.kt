@@ -89,23 +89,28 @@ class MainActivity : AppCompatActivity() {
                     "el nombre de la materia no debe estar vacio",
                     Toast.LENGTH_SHORT
                 ).show()
-            } else if(ht<= 0 ) {
-                Toast.makeText(
-                    this,
-                    "Las horas teoricas deben ser mayor a cero",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }else if(hp<= 0 ) {
-                Toast.makeText(
-                    this,
-                    "Las horas practicas deben ser mayor a cero",
-                    Toast.LENGTH_SHORT
-                ).show()
+//            } else if(ht<= 0 ) {
+//                Toast.makeText(
+//                    this,
+//                    "Las horas teoricas deben ser mayor a cero",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            }else if(hp<= 0 ) {
+//                Toast.makeText(
+//                    this,
+//                    "Las horas practicas deben ser mayor a cero",
+//                    Toast.LENGTH_SHORT
+//                ).show()
             }else if(etCreditos.text.toString().isEmpty() || etCreditos.text.toString().toInt() <= 0) {
                 Toast.makeText(this, "Cantidad de creditos no valida", Toast.LENGTH_SHORT).show()
             }else {
                 val intent = Intent(this, ResultActivity::class.java)
+                val trabajoInd = ((etCreditos.text.toString().toInt() * 48) - (ht+hp) * 16) / 16
+                intent.putExtra("nombreMat", etMateria.text.toString())
+                intent.putExtra("horaTeo", ht.toString())
+                intent.putExtra("horaPrac", hp.toString())
                 intent.putExtra("numeroCreditos", etCreditos.text.toString())
+                intent.putExtra("trabajoInd", trabajoInd.toString())
                 startActivity(intent)
             }
         }
