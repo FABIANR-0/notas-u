@@ -1,2 +1,2 @@
 # notas-u
-androis studio project to manage notes 
+android studio project to manage notes 

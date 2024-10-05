@@ -2,6 +2,7 @@ package cn.example.parcial
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
@@ -19,7 +20,10 @@ class ResultActivity : AppCompatActivity() {
         var numeroCredito : TextView = findViewById(R.id.numeroCredito)
         var trabajoInd : TextView = findViewById(R.id.trabajoInde)
 
-
+        val buttonReturn = findViewById<Button>(R.id.btnVolver)
+        buttonReturn.setOnClickListener {
+            finish() // Cierra la actividad actual y vuelve a la anterior
+        }
         enableEdgeToEdge()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.result)) { v, insets ->
@@ -29,11 +33,12 @@ class ResultActivity : AppCompatActivity() {
         }
 
         var nombreMate : String = intent.extras?.getString("nombreMat").orEmpty()
-        var horasTeor : String = intent.extras?.getString("horaTeo").orEmpty()
-        var horasPract : String = intent.extras?.getString("horaPrac").orEmpty()
+        var horasTeor : String = intent.extras?.getString("horaTeo").orEmpty() + " H"
+        var horasPract : String = intent.extras?.getString("horaPrac").orEmpty() + " H"
         var numeroCreditos : String = intent.extras?.getString("numeroCreditos").orEmpty()
-        var trabajoIndp : String = intent.extras?.getString("trabajoInd").orEmpty()
+        var trabajoIndp : String = intent.extras?.getString("trabajoInd").orEmpty() + " H"
 
+        //asigno valores a la vista
         nombreMat.text = nombreMate
         horasTeo.text = horasTeor
         horasPrac.text = horasPract

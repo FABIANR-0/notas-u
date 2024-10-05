@@ -58,6 +58,7 @@
             android:backgroundTint="@color/text"
             android:textColor="@color/text"
             android:textAlignment="center"
+            android:maxLength="25"
             android:maxLines="1"
             app:layout_constraintTop_toBottomOf="@+id/txMateria" />
 
@@ -209,6 +210,7 @@
             android:textColor="@color/text"
             app:layout_constraintEnd_toEndOf="parent"
             android:textAlignment="center"
+            android:maxLength="2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvCC" />
 

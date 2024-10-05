@@ -102,10 +102,11 @@ class MainActivity : AppCompatActivity() {
 //                    Toast.LENGTH_SHORT
 //                ).show()
             }else if(etCreditos.text.toString().isEmpty() || etCreditos.text.toString().toInt() <= 0) {
-                Toast.makeText(this, "Cantidad de creditos no valida", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Cantidad de creditos no valido", Toast.LENGTH_SHORT).show()
             }else {
                 val intent = Intent(this, ResultActivity::class.java)
-                val trabajoInd = ((etCreditos.text.toString().toInt() * 48) - (ht+hp) * 16) / 16
+                //calculo del trabajo independiente
+                val trabajoInd = (((etCreditos.text.toString().toInt() * 48) - ((ht+hp) * 16)) / 16)
                 intent.putExtra("nombreMat", etMateria.text.toString())
                 intent.putExtra("horaTeo", ht.toString())
                 intent.putExtra("horaPrac", hp.toString())
