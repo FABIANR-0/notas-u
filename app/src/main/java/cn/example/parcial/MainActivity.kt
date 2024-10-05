@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -82,9 +83,31 @@ class MainActivity : AppCompatActivity() {
             }
         }
         buttonCalcular.setOnClickListener {
-            val intent = Intent(this,ResultActivity::class.java)
-            intent.putExtra("numeroCreditos",etCreditos.text.toString())
-            startActivity(intent)
+            if(etMateria.text.toString().isEmpty() ) {
+                Toast.makeText(
+                    this,
+                    "el nombre de la materia no debe estar vacio",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if(ht<= 0 ) {
+                Toast.makeText(
+                    this,
+                    "Las horas teoricas deben ser mayor a cero",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }else if(hp<= 0 ) {
+                Toast.makeText(
+                    this,
+                    "Las horas practicas deben ser mayor a cero",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }else if(etCreditos.text.toString().isEmpty() || etCreditos.text.toString().toInt() <= 0) {
+                Toast.makeText(this, "Cantidad de creditos no valida", Toast.LENGTH_SHORT).show()
+            }else {
+                val intent = Intent(this, ResultActivity::class.java)
+                intent.putExtra("numeroCreditos", etCreditos.text.toString())
+                startActivity(intent)
+            }
         }
     }
 
